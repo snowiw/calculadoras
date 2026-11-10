@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Calculadoras</h1>
+        <p>Calcule seu IMC, sua taxa metabólica basal e seu salário líquido</p>
+    </header>
+
+    <nav class="abas">
+        <button class="aba ativa" onclick="trocarAba('imc', this)">IMC</button>
+        <button class="aba" onclick="trocarAba('tmb', this)">Taxa Metabólica</button>
+        <button class="aba" onclick="trocarAba('salario', this)">Salário Líquido</button>
+    </nav>
+
+    <main>
+        <section class="card ativo" id="imc">
+            <div class="card-topo">
+                <div>
+                    <h2>Calculadora de IMC</h2>
+                    <p class="descricao">Descubra se o seu peso está adequado para a sua altura.</p>
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="campo">
+                    <label for="imcPeso">Peso (kg)</label>
+                    <input type="number" id="imcPeso" placeholder="Ex: 70">
+                </div>
+                <div class="campo">
+                    <label for="imcAltura">Altura (m)</label>
+                    <input type="number" id="imcAltura" placeholder="Ex: 1.75" step="0.01">
+                </div>
+            </div>
+
+            <button class="btn" onclick="calcularIMC()">Calcular IMC</button>
+
+            <div id="resultadoIMC" class="resultado"></div>
+        </section>
+
+        <section class="card" id="tmb">
+            <div class="card-topo">
+                <div>
+                    <h2>Taxa Metabólica Basal</h2>
+                    <p class="descricao">Quantas calorias seu corpo gasta por dia em repouso.</p>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="tmbSexo">Sexo</label>
+                <select id="tmbSexo">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                </select>
+            </div>
+
+            <div class="linha">
+                <div class="campo">
+                    <label for="tmbPeso">Peso (kg)</label>
+                    <input type="number" id="tmbPeso" placeholder="Ex: 70">
+                </div>
+                <div class="campo">
+                    <label for="tmbAltura">Altura (cm)</label>
+                    <input type="number" id="tmbAltura" placeholder="Ex: 175">
+                </div>
+                <div class="campo">
+                    <label for="tmbIdade">Idade</label>
+                    <input type="number" id="tmbIdade" placeholder="Ex: 20">
+                </div>
+            </div>
+
+            <button class="btn" onclick="calcularTMB()">Calcular TMB</button>
+
+            <div id="resultadoTMB" class="resultado"></div>
+        </section>
+
+        <section class="card" id="salario">
+            <div class="card-topo">
+                <div>
+                    <h2>Salário Líquido</h2>
+                    <p class="descricao">Veja quanto sobra depois dos descontos de INSS e IRRF.</p>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="salarioBruto">Salário bruto (R$)</label>
+                <input type="number" id="salarioBruto" placeholder="Ex: 3000">
+            </div>
+
+            <div class="linha">
+                <div class="campo">
+                    <label for="dependentes">Dependentes</label>
+                    <input type="number" id="dependentes" value="0" min="0">
+                </div>
+                <div class="campo">
+                    <label for="outrosDescontos">Outros descontos (R$)</label>
+                    <input type="number" id="outrosDescontos" value="0" min="0">
+                </div>
+            </div>
+
+            <button class="btn" onclick="calcularSalario()">Calcular salário</button>
+
+            <div id="resultadoSalario" class="resultado"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Trabalho de Desenvolvimento Web &bull; TADS</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
